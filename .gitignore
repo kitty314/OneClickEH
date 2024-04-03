@@ -1,0 +1,4 @@
+configs_.json
+*.html
+.vscode/
+__pycache__/

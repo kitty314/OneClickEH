@@ -1,0 +1,34 @@
+{
+    "eh":{
+        "cookies": {
+            "ipb_member_id": "",
+            "ipb_pass_hash": "",
+            "sk": "",
+            "ipb_session_id": "",
+            "event": ""
+        },
+        "headers": {
+            "User-Agent": ""
+        }
+    },
+    "qb":{
+        "host": "",
+        "port": "8080",
+        "username": "",
+        "password": ""
+    },
+    "server":{
+        "host": "0.0.0.0",
+        "port": "9999",
+        "passwd": "0000"
+    },
+    "path": {
+        "archive_path": "/path/to/your/archive",
+        "temp_path": "/path/to/tempfiles",
+        "torrent_path": "/path/to/save/torrents"
+    },
+    "qb_api":{
+        "ratio_limit": 10.0,
+        "is_paused": 0
+    }
+}
