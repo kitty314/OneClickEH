@@ -50,6 +50,12 @@ class Downloader():
         )
         filename = bytes_string.encode('latin1').decode('utf-8')
 
+        # Make sure the filename would be too long
+        if len(filename) > 255:
+            filename = filename[:251]
+            if '.zip' not in filename:
+                filename += '.zip'
+
         if not os.path.exists(self.archive_path):
             os.makedirs(self.archive_path)
 
@@ -75,6 +81,11 @@ class Downloader():
         r = requests.get(url)
         if r.status_code == 200:
             filename = r.headers['Content-Disposition'].split("=")[-1].strip('"')
+            # Make sure the filename would be too long
+            if len(filename) > 255:
+                filename = filename[:247]
+                if '.torrent' not in filename:
+                    filename += '.torrent'
             output_filename = os.path.join(self.torrent_path, filename)
             with open(output_filename, 'wb') as f:
                 f.write(r.content)
