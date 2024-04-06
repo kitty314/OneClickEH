@@ -25,7 +25,7 @@ def create_torrent_file(gid, root, archive_path):
     # Create a new torrent file
     torrent_path = os.path.join(root, gid + ".torrent")
     py3createtorrent.create_torrent(path=archive_path, trackers=[
-                                    "http://ehtracker.org/{}/announce".format(gid)], output=torrent_path, force=True, comment='Created by OneClickEH')
+                                    "http://ehtracker.org/{}/announce".format(gid)], output=torrent_path, force=True, comment='Created by OneClickEH: https://github.com/Tofudry233/OneClickEH')
     return torrent_path
 
 
