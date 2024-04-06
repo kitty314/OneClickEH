@@ -83,6 +83,12 @@ class Downloader():
         r = requests.get(url)
         if r.status_code == 200:
             filename = r.headers['Content-Disposition'].split("=")[-1].strip('"')
+            bytes_string = re.sub(
+                r'\\x([0-9a-fA-F]{2})',
+                lambda match: bytes.fromhex(match.group(1)).decode('latin1'),
+                filename
+            )
+            filename = bytes_string.encode('latin1').decode('utf-8')
             # Make sure the filename would be too long
             filename = filename[:-8]
             if len(filename)+8 > self.max_name_len:
