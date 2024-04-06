@@ -10,6 +10,7 @@ class Downloader():
         self.archive_path = archive_path
         self.temp_path = temp_path
         self.torrent_path = torrent_path
+        self.max_name_len = os.pathconf('/', 'PC_NAME_MAX')
 
     def _download_chunk(self, args):
         url, filename, start, end, part_num, total_size = args
@@ -51,10 +52,11 @@ class Downloader():
         filename = bytes_string.encode('latin1').decode('utf-8')
 
         # Make sure the filename would be too long
-        if len(filename) > 255:
-            filename = filename[:251]
-            if '.zip' not in filename:
-                filename += '.zip'
+        filename = filename[:-4]
+        if len(filename)+4 > self.max_name_len:
+            filename = filename[:self.max_name_len-4]
+        if '.zip' not in filename:
+            filename += '.zip'
 
         if not os.path.exists(self.archive_path):
             os.makedirs(self.archive_path)
@@ -82,10 +84,11 @@ class Downloader():
         if r.status_code == 200:
             filename = r.headers['Content-Disposition'].split("=")[-1].strip('"')
             # Make sure the filename would be too long
-            if len(filename) > 255:
-                filename = filename[:247]
-                if '.torrent' not in filename:
-                    filename += '.torrent'
+            filename = filename[:-8]
+            if len(filename)+8 > self.max_name_len:
+                filename = filename[:self.max_name_len-8]
+            if '.torrent' not in filename:
+                filename += '.torrent'
             output_filename = os.path.join(self.torrent_path, filename)
             with open(output_filename, 'wb') as f:
                 f.write(r.content)
