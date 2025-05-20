@@ -1,34 +1,35 @@
 {
     "eh":{
         "cookies": {
-            "ipb_member_id": "",
-            "ipb_pass_hash": "",
-            "sk": "",
+            "ipb_member_id": "7495751",
+            "ipb_pass_hash": "0b34f4c4ce657871ea5a6f79277bfb9d",
+            "sk": "pzukh7o3yurkc5o9iq1qw6sc8667",
             "ipb_session_id": "",
-            "event": ""
+            "event": "1747729695",
+            "nw": "1"
         },
         "headers": {
-            "User-Agent": ""
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36"
         }
     },
     "qb":{
-        "host": "",
-        "port": "8080",
-        "username": "",
-        "password": ""
+        "host": "localhost",
+        "port": "9999",
+        "username": "test2025",
+        "password": "keyfortest2025"
     },
     "server":{
         "host": "0.0.0.0",
-        "port": "9999",
-        "passwd": "0000"
+        "port": "9998",
+        "passwd": "test2025"
     },
     "path": {
-        "archive_path": "/path/to/your/archive",
-        "temp_path": "/path/to/tempfiles",
-        "torrent_path": "/path/to/save/torrents"
+        "archive_path": "/root/archive",
+        "temp_path": "/root/tempfiles",
+        "torrent_path": "/root/torrents"
     },
     "qb_api":{
-        "ratio_limit": 10.0,
+        "ratio_limit": 0,
         "is_paused": 0
     }
 }
