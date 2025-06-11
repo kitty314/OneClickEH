@@ -90,4 +90,7 @@ def handle_task():
 if __name__ == '__main__':
     # 0. Read in the configs.json file
     eh_config, qb_config, server_config, path, qb_api = get_config()
+    os.makedirs(path["archive_path"], exist_ok=True)
+    os.makedirs(path["temp_path"], exist_ok=True)
+    os.makedirs(path["torrent_path"], exist_ok=True)
     app.run(server_config["host"],server_config["port"], debug=False)

@@ -5,7 +5,8 @@
             "ipb_pass_hash": "",
             "sk": "",
             "ipb_session_id": "",
-            "event": ""
+            "event": "",
+            "nw": "1"
         },
         "headers": {
             "User-Agent": ""
